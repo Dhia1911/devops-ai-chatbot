@@ -1,0 +1,25 @@
+# ============================================================
+# .gitignore — Fichiers a NE PAS pusher sur GitHub
+# ============================================================
+
+# Cle API — TRES IMPORTANT : jamais sur GitHub !
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
