@@ -1,21 +1,14 @@
-name: deploy
-on: [push]
-  branches:
-    - main
+name: Deploy
+on:
+  push:
+    branches: [main]
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          python-version: 3.12
-      - name: Installe les dépendances
-        run: pip install -r requirements.txt
-      - name: Build et test
-        run: gunicorn --bind 0.0.0.0:$PORT app:app
-      - name: Déployer sur Heroku
-        uses: heroku/deploy@v3
-        with:
-          api-key: ${{ secrets.HEROKU_API_KEY }}
-          app-name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "fooshika-app"
+          heroku_email: "admin@fooshika.com"
