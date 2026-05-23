@@ -1,6 +1,6 @@
-FROM node:18-alpine
+FROM python:3.12-slim
 WORKDIR /app
-COPY package*.json .
-RUN npm install
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 COPY . .
-CMD ["npm","start"]
+CMD ["python", "chatbot.py"]
