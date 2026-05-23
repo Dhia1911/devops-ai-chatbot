@@ -1,6 +1,2 @@
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json .
-RUN npm install
-COPY . .
-CMD ["npm","start"]
+FROM python:3.12-slim
+RUN pip install -r requirements.txt
